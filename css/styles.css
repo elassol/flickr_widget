@@ -1,0 +1,34 @@
+#wrap-images {
+    display: block;
+    width: 100%; 
+    height: auto;
+    padding:0; 
+    margin:0; 
+    overflow: hidden;
+}
+
+#wrap-images a {
+    float: left;
+    display: block;
+    width: 25%;
+    padding-bottom: 24.723%;
+    height: auto;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    
+
+}
+
+
+
+#wrap-images a:hover {
+    background-size: 200%;
+    tra
+}
+
+#wrap-images img { 
+    border:none;
+    visibility: hidden;    
+}
