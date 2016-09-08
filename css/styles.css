@@ -11,8 +11,8 @@
     position: relative;
     float: left;
     display: block;
-    width: 25%;
-    padding-bottom: 24.723%;
+    width: 50%;
+    padding-bottom: 50%;
     height: auto;
     overflow: hidden;
     background-repeat: no-repeat;
@@ -69,6 +69,8 @@
 
 
 
+
+
 #wrap-images a:hover {
 
     
@@ -90,3 +92,19 @@
     border:none;
     visibility: hidden;    
 }
+
+@media (min-width: 600px) {
+    #wrap-images a {
+        width: 33.33%;
+        padding-bottom: 32.999%;
+    }
+}
+
+@media (min-width: 900px) {
+    #wrap-images a {
+        width: 25%;
+        padding-bottom: 24.723%;
+    }
+}
+
+

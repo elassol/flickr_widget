@@ -32,11 +32,16 @@ var FlickrWidget = {
 
         $.getJSON(myURL, function(data){
             $.each(data.items, function(i,item){
-                $(" <a href='" + item.link + "' style=\"background-image: url('" + item.media.m + ")\";><h3> " + item.title + " </h3></a> ").appendTo(widgetID);
+                if (i < 6){
+                    $(" <a href='" + item.link + "' style=\"background-image: url('" + item.media.m + ")\";><h3> " + item.title + " </h3></a> ").appendTo(widgetID);
+                } else {
+
+                }
+                
             });
             $("#title").html(data.title);
             $("#description").html(data.description);
-            $("#link").html("<a href='" + data.link + "' target=\"_blank\">Visit the Viget Inspiration Pool!</a>");
+            $("#link").html("<a href='" + data.link + "' target=\"_blank\">Visit the Full Gallery!</a>");
         });
 
     }
