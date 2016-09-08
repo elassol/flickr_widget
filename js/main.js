@@ -1,40 +1,58 @@
 // Json Feed in JQuery
 
-$(document).ready(function(){
+// $(document).ready(function(){
 
-    console.log("hello");
+//     console.log("hello");
 
-    // $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?id=35315969@N08&lang=en-us&format=json&jsoncallback=?", function(data){
-    //     $.each(data.items, function(i,item){
-    //         $("<img/>").attr("src", item.media.m).appendTo("#wrap-images")
-    //         .wrap("<a href='" + item.link + "'></a>");
-    //     });
-    //     $("#title").html(data.title);
-    //     $("#description").html(data.description);
-    //     $("#link").html("<a href='"+data.link+"' target=\"_blank\">Visit the Viget Inspiration Pool!</a>");
-    // });
+//     $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?id=35315969@N08&lang=en-us&format=json&jsoncallback=?", function(data){
+//         $.each(data.items, function(i,item){
+//             $("<img/>").attr("src", item.media.m).appendTo("#wrap-images")
+//             .wrap("<a href='" + item.link + "'></a>");
+//         });
+//         $("#title").html(data.title);
+//         $("#description").html(data.description);
+//         $("#link").html("<a href='"+data.link+"' target=\"_blank\">Visit the Viget Inspiration Pool!</a>");
+//     });
+
+   
+// });
 
 
-    // Example with backgground image
+// INIT WAY TO  Using an object literal for a jQuery feature
 
-    $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?id=35315969@N08&lang=en-us&format=json&jsoncallback=?", function(data){
-        $.each(data.items, function(i,item){
-            $(" <a href='" + item.link + "' style=\"background-image: url('" + item.media.m + ")\";></a> ").appendTo("#wrap-images");
+var FlickrWidget = {
 
-            // $("<img/>").attr("src", item.media.m).appendTo("#wrap-images")
-            // .wrap("<a href='" + item.link + "' style='background-image:url('" + item.media.m + "')'></a>");
+
+    init: function (settings) {
+
+        // Private variables and functions
+        var widgetID = $("#wrap-images");
+        var myFlickr = "35315969@N08";
+        var myURL = "http://api.flickr.com/services/feeds/photos_public.gne?id=" + myFlickr + "&lang=en-us&format=json&jsoncallback=?";
+
+        $.getJSON(myURL, function(data){
+            $.each(data.items, function(i,item){
+                $(" <a href='" + item.link + "' style=\"background-image: url('" + item.media.m + ")\";><h3> " + item.title + " </h3></a> ").appendTo(widgetID);
+            });
+            $("#title").html(data.title);
+            $("#description").html(data.description);
+            $("#link").html("<a href='" + data.link + "' target=\"_blank\">Visit the Viget Inspiration Pool!</a>");
         });
-        $("#title").html(data.title);
-        $("#description").html(data.description);
-        $("#link").html("<a href='"+data.link+"' target=\"_blank\">Visit the Viget Inspiration Pool!</a>");
-    });
+
+    }
+    
+};
+
+$( document ).ready( FlickrWidget.init );
+
+
+
+
+    
+   
 
     
 
-
-
-   
-});
 
 
 
